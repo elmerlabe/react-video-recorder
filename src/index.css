@@ -1,3 +1,7 @@
+@tailwind base;
+@taildwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +9,34 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #131313;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.text-white {
+  color: #fff
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* record instruction*/
+.bTwNuH {
+  display: none!important;
+}
+
+/* circle record/stop btn*/
+.bPvwx,.fFdAUW {
+  margin-top: 160px;
+}
+
+/* use another video btn*/
+.jLcHAe {
+  display: none;
+  margin-top: 150px!important
 }
