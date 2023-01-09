@@ -1,4 +1,9 @@
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {
+  connectStorageEmulator,
+  getDownloadURL,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { useRef, useState } from "react";
 import VideoRecorder from "react-video-recorder";
 import storage from "./firebase";
@@ -48,17 +53,19 @@ export default function RecordVideo() {
         }}
       >
         <VideoRecorder
-          chunkSize={250}
           constraints={{
-            video: true,
             audio: true,
           }}
+          isReplayingVideo={true}
           countdownTime={3000}
           timeLimit={60000}
           isFlipped={true}
           isOnInitially
           showReplayControls
           replayVideoAutoplayAndLoopOff
+          onError={(e) => {
+            console.log(e);
+          }}
           onRecordingComplete={(blob) => {
             const objURL = URL.createObjectURL(blob);
             setVideoBlob(blob);
