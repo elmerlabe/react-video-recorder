@@ -63,6 +63,13 @@ export default function RecordVideo() {
           isOnInitially
           showReplayControls
           replayVideoAutoplayAndLoopOff
+          onTurnOnCamera={(e) => {
+            console.log("Camera ON");
+            //document.getElementsByClassName("jLcHAe")[0].click();
+          }}
+          onTurnOffCamera={() => {
+            console.log("Camera OFF");
+          }}
           onError={(e) => {
             console.log(e);
           }}
@@ -79,7 +86,8 @@ export default function RecordVideo() {
             <button
               type="button"
               onClick={() => {
-                window.location.reload();
+                setRecordFin(false);
+                document.getElementsByClassName("jLcHAe")[0].click();
               }}
               className="mt-3 mr-4 inline bg-yellow-600 hover:bg-yellow-700 rounded-full px-10 py-1.5 text-black-800 font-semibold"
             >
