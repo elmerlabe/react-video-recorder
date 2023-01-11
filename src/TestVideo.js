@@ -28,7 +28,12 @@ const TestVideo = () => {
 
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ audio: true, video: true })
+      .getUserMedia({
+        audio: true,
+        video: {
+          facingMode: "user",
+        },
+      })
       .then((stream) => {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;

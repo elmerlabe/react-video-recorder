@@ -44,43 +44,45 @@ export default function RecordVideo() {
   return (
     <div className="text-center">
       <h2 className="text-white text-3xl mb-2">Record a video message</h2>
-      <div
-        style={{
-          height: "500px",
-          width: "400px",
-          alignItems: "center",
-          margin: "auto",
-        }}
-      >
-        <VideoRecorder
-          constraints={{
-            audio: true,
+      <div className="container">
+        <div
+          style={{
+            margin: "auto",
+            height: "500px",
+            width: "370px",
           }}
-          isReplayingVideo={true}
-          countdownTime={3000}
-          timeLimit={60000}
-          isFlipped={true}
-          isOnInitially
-          showReplayControls
-          replayVideoAutoplayAndLoopOff
-          onTurnOnCamera={(e) => {
-            console.log("Camera ON");
-            //document.getElementsByClassName("jLcHAe")[0].click();
-          }}
-          onTurnOffCamera={() => {
-            console.log("Camera OFF");
-          }}
-          onError={(e) => {
-            console.log(e);
-          }}
-          onRecordingComplete={(blob) => {
-            const objURL = URL.createObjectURL(blob);
-            setVideoBlob(blob);
-            //console.log(blob);
-            //console.log(objURL);
-            setRecordFin(true);
-          }}
-        />
+        >
+          <VideoRecorder
+            constraints={{
+              audio: false,
+              video: { width: { min: 360 }, height: { min: 400 } },
+            }}
+            isReplayingVideo={true}
+            countdownTime={3000}
+            timeLimit={60000}
+            isFlipped={true}
+            isOnInitially
+            showReplayControls
+            replayVideoAutoplayAndLoopOff
+            onRecordingComplete={(blob) => {
+              const objURL = URL.createObjectURL(blob);
+              setVideoBlob(blob);
+              //console.log(blob);
+              //console.log(objURL);
+              setRecordFin(true);
+            }}
+          />
+        </div>
+
+        <div className="hidden">
+          <button
+            type="button"
+            className="mt-3 mr-4 inline bg-slate-600 hover:bg-slate-700 rounded-full px-10 py-1.5 text-gray-100 font-semibold"
+          >
+            Screenshot
+          </button>
+        </div>
+
         {recordFin ? (
           <div>
             <button
