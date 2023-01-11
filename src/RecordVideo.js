@@ -54,7 +54,7 @@ export default function RecordVideo() {
         >
           <VideoRecorder
             constraints={{
-              audio: false,
+              audio: true,
               video: { width: { min: 360 }, height: { min: 400 } },
             }}
             isReplayingVideo={true}
